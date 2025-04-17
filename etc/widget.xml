@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="pdf_lookbook_slider" class="Pdf\Lookbook\Block\Widget\Slider" placeholder_image="Pdf_Lookbook::images/widget-slider-placeholder.png">
+        <label translate="true">PDF Lookbook Slider</label>
+        <description translate="true">Displays a slider of PDF lookbooks</description>
+        <parameters>
+            <parameter name="slider_title" xsi:type="text" visible="true" sort_order="10">
+                <label translate="true">Slider Title</label>
+                <value>Catalogs</value>
+            </parameter>
+            <parameter name="number_of_lookbooks" xsi:type="text" visible="true" sort_order="20">
+                <label translate="true">Number of Lookbooks</label>
+                <value>10</value>
+                <description translate="true">Maximum number of lookbooks to display</description>
+                <validate>validate-number validate-greater-than-zero</validate>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

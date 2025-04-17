@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Pdf_Lookbook::lookbook" title="Lookbook PDFs" translate="title" module="Pdf_Lookbook" sortOrder="100" parent="Magento_Backend::content" resource="Pdf_Lookbook::lookbook"/>
+        <add id="Pdf_Lookbook::lookbook_manage" title="Manage Lookbooks" translate="title" module="Pdf_Lookbook" sortOrder="10" parent="Pdf_Lookbook::lookbook" action="pdflookbook/lookbook/index" resource="Pdf_Lookbook::lookbook_manage"/>
+    </menu>
+</config>

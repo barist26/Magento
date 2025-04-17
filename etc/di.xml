@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Pdf\Lookbook\Api\Data\LookbookInterface" type="Pdf\Lookbook\Model\Lookbook" />
+    <preference for="Pdf\Lookbook\Api\LookbookRepositoryInterface" type="Pdf\Lookbook\Model\LookbookRepository" />
+    <preference for="Pdf\Lookbook\Api\Data\LookbookSearchResultsInterface" type="Pdf\Lookbook\Model\LookbookSearchResults" />
+    
+    <virtualType name="Pdf\Lookbook\Model\ResourceModel\Lookbook\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">pdf_lookbook</argument>
+            <argument name="resourceModel" xsi:type="string">Pdf\Lookbook\Model\ResourceModel\Lookbook</argument>
+        </arguments>
+    </virtualType>
+    
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="pdf_lookbook_listing_data_source" xsi:type="string">Pdf\Lookbook\Model\ResourceModel\Lookbook\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    
+    <type name="Pdf\Lookbook\Model\Lookbook\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">lookbook/tmp</argument>
+            <argument name="basePath" xsi:type="string">lookbook</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="pdf" xsi:type="string">pdf</item>
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="png" xsi:type="string">png</item>
+                <item name="gif" xsi:type="string">gif</item>
+            </argument>
+        </arguments>
+    </type>
+    
+    <type name="Magento\Framework\App\Request\DataPersistorInterface">
+        <plugin name="pdf_lookbook_data_persistor" type="Pdf\Lookbook\Plugin\DataPersistor" />
+    </type>
+</config>

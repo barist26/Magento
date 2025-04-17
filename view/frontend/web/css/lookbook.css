@@ -1,0 +1,144 @@
+/* Lookbook Grid Styles */
+.lookbook-container {
+    margin: 20px 0;
+}
+
+.lookbook-title {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.lookbook-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.lookbook-item {
+    border: 1px solid #e8e8e8;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.lookbook-item:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.lookbook-item-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.lookbook-cover {
+    position: relative;
+    overflow: hidden;
+    padding-top: 120%; /* Aspect ratio for cover - reduced height */
+}
+
+.lookbook-cover img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.lookbook-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lookbook-item:hover .lookbook-overlay {
+    opacity: 1;
+}
+
+.lookbook-item:hover .lookbook-cover img {
+    transform: scale(1.05);
+}
+
+.lookbook-view-btn {
+    background-color: #1979c3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.lookbook-view-btn:hover {
+    background-color: #166daf;
+    color: white;
+    text-decoration: none;
+}
+
+.lookbook-info {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.lookbook-name {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.lookbook-description {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+
+/* Pagination Styles */
+.lookbook-pagination {
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .lookbook-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 991px) {
+    .lookbook-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .lookbook-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .lookbook-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+}

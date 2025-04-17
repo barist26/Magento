@@ -1,0 +1,15 @@
+/* Basic styles for PDF viewer */
+.pdfViewer {
+  padding: 10px 0;
+}
+
+.page {
+  position: relative;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  margin: 20px auto;
+}
+
+.page canvas {
+  display: block;
+}

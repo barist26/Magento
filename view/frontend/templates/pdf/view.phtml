@@ -1,0 +1,49 @@
+<?php
+/**
+ * PDF viewer template
+ *
+ * @var $block \Pdf\Lookbook\Block\Pdf\View
+ */
+?>
+<?php $pdfUrl = $block->getPdfUrl(); ?>
+<?php if ($pdfUrl): ?>
+    <div class="pdf-viewer-container">
+        <div class="pdf-viewer-header">
+            <a href="<?= $block->escapeUrl($block->getBackUrl()) ?>" class="pdf-viewer-back">
+                &laquo; <?= $block->escapeHtml(__('Back to Catalogs')) ?>
+            </a>
+            <h1 class="pdf-viewer-title"><?= $block->escapeHtml($block->getLookbookTitle()) ?></h1>
+            <?php if ($block->getLookbookDescription()): ?>
+                <div class="pdf-viewer-description">
+                    <?= $block->escapeHtml($block->getLookbookDescription()) ?>
+                </div>
+            <?php endif; ?>
+        </div>
+        <?php if ($block->isEmbeddedMode()): ?>
+            <div class="pdf-viewer-frame">
+                <object data="<?= $block->escapeUrl($pdfUrl) ?>" type="application/pdf" width="100%" height="100%">
+                    <p>It appears you don't have a PDF plugin for this browser. You can <a href="<?= $block->escapeUrl($pdfUrl) ?>">click here to download the PDF file.</a></p>
+                </object>
+            </div>
+        <?php else: ?>
+            <div class="pdf-flipbook-container" id="flipbook-container">
+                <div class="pdf-flipbook" id="flipbook">
+                    <div class="pdf-flipbook-loading"><?= $block->escapeHtml(__('Loading flipbook...')) ?></div>
+                </div>
+            </div>
+            <script type="text/x-magento-init">
+            {
+                "#flipbook-container": {
+                    "Pdf_Lookbook/js/flipbook": {
+                        "pdfUrl": "<?= $block->escapeUrl($pdfUrl) ?>"
+                    }
+                }
+            }
+            </script>
+        <?php endif; ?>
+    </div>
+<?php else: ?>
+    <div class="message info empty">
+        <div><?= $block->escapeHtml(__('PDF not found.')) ?></div>
+    </div>
+<?php endif; ?>

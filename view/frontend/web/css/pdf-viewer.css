@@ -1,0 +1,41 @@
+.pdf-viewer-container {
+    margin: 20px 0;
+}
+
+.pdf-viewer-header {
+    margin-bottom: 20px;
+}
+
+.pdf-viewer-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.pdf-viewer-description {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.pdf-viewer-back {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #1979c3;
+    text-decoration: none;
+}
+
+.pdf-viewer-back:hover {
+    text-decoration: underline;
+}
+
+.pdf-viewer-frame {
+    width: 100%;
+    height: 80vh;
+    border: 1px solid #ddd;
+    background: #f8f8f8;
+}
+
+@media (max-width: 767px) {
+    .pdf-viewer-frame {
+        height: 70vh;
+    }
+}

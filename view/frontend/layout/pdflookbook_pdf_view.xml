@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Pdf_Lookbook::css/pdf-viewer.css"/>
+        <css src="Pdf_Lookbook::css/flipbook.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Pdf\Lookbook\Block\Pdf\View" name="lookbook.pdf.view" template="Pdf_Lookbook::pdf/view.phtml" />
+        </referenceContainer>
+    </body>
+</page>

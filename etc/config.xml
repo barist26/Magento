@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <pdf_lookbook>
+            <general>
+                <enabled>1</enabled>
+                <items_per_page>6</items_per_page>
+                <display_mode>embedded</display_mode>
+            </general>
+        </pdf_lookbook>
+    </default>
+</config>

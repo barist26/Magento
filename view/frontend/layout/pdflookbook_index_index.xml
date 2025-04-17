@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Catalogs</title>
+        <css src="Pdf_Lookbook::css/lookbook.css"/>
+        <script src="Pdf_Lookbook::js/lookbook.js"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Pdf\Lookbook\Block\Lookbook" name="lookbook.list" template="Pdf_Lookbook::lookbook/list.phtml">
+                <block class="Magento\Theme\Block\Html\Pager" name="lookbook_list_pager"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

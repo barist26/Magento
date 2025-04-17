@@ -1,0 +1,52 @@
+<?php
+/**
+ * Lookbook list template
+ *
+ * @var $block \Pdf\Lookbook\Block\Lookbook
+ */
+?>
+<div class="lookbook-container">
+    <h1 class="lookbook-title"><?= $block->escapeHtml(__('Catalogs')) ?></h1>
+
+    <?php $lookbooks = $block->getLookbookCollection(); ?>
+    <?php if ($lookbooks && count($lookbooks)): ?>
+        <div class="lookbook-grid">
+            <?php foreach ($lookbooks as $lookbook): ?>
+                <div class="lookbook-item">
+                    <div class="lookbook-item-inner">
+                        <div class="lookbook-cover">
+                            <img src="<?= $block->escapeUrl($block->getCoverImageUrl($lookbook->getCoverImage())) ?>"
+                                 alt="<?= $block->escapeHtml($lookbook->getTitle()) ?>" />
+                            <div class="lookbook-overlay">
+                                <a href="<?= $block->escapeUrl($block->getUrl('lookbook/pdf/view', ['id' => $lookbook->getId()])) ?>" class="lookbook-view-btn">
+                                    <?= $block->escapeHtml(__('View')) ?>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="lookbook-info">
+                            <h3 class="lookbook-name"><?= $block->escapeHtml($lookbook->getTitle()) ?></h3>
+                            <?php if ($lookbook->getDescription()): ?>
+                                <div class="lookbook-description">
+                                    <?= $block->escapeHtml($lookbook->getDescription()) ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+        <?php if ($block->getPaginationHtml()): ?>
+            <div class="lookbook-pagination">
+                <?= $block->getPaginationHtml() ?>
+            </div>
+        <?php endif; ?>
+
+    <?php else: ?>
+        <div class="message info empty">
+            <div><?= $block->escapeHtml(__('No lookbooks found.')) ?></div>
+        </div>
+    <?php endif; ?>
+
+
+</div>

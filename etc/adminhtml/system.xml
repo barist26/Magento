@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="pdf_lookbook" translate="label" sortOrder="500">
+            <label>PDF Lookbook</label>
+        </tab>
+        <section id="pdf_lookbook" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>PDF Lookbook</label>
+            <tab>pdf_lookbook</tab>
+            <resource>Pdf_Lookbook::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable or disable the PDF Lookbook module</comment>
+                </field>
+                <field id="items_per_page" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Items Per Page</label>
+                    <validate>validate-number validate-greater-than-zero</validate>
+                    <comment>Number of lookbooks to display per page</comment>
+                </field>
+                <field id="display_mode" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>PDF Display Mode</label>
+                    <source_model>Pdf\Lookbook\Model\Config\Source\DisplayMode</source_model>
+                    <comment>Choose how to display PDFs: embedded in page or in a modal popup</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

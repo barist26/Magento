@@ -1,0 +1,56 @@
+<?php
+/**
+ * Lookbook slider widget template
+ *
+ * @var $block \Pdf\Lookbook\Block\Widget\Slider
+ */
+?>
+<?php $lookbooks = $block->getLookbookCollection(); ?>
+<?php if ($lookbooks && count($lookbooks)): ?>
+    <?php $sliderId = $block->getSliderId(); ?>
+    <div class="lookbook-slider-container">
+        <h2 class="lookbook-slider-title"><?= $block->escapeHtml($block->getSliderTitle()) ?></h2>
+
+        <div class="lookbook-slider" id="<?= $block->escapeHtmlAttr($sliderId) ?>">
+            <?php foreach ($lookbooks as $lookbook): ?>
+                <div class="lookbook-slide">
+                    <div class="lookbook-slide-inner">
+                        <div class="lookbook-slide-cover">
+                            <img src="<?= $block->escapeUrl($block->getCoverImageUrl($lookbook->getCoverImage())) ?>"
+                                 alt="<?= $block->escapeHtml($lookbook->getTitle()) ?>" />
+                            <div class="lookbook-slide-overlay">
+                                <a href="<?= $block->escapeUrl($block->getUrl('lookbook/pdf/view', ['id' => $lookbook->getId()])) ?>" class="lookbook-slide-btn">
+                                    <?= $block->escapeHtml(__('View')) ?>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="lookbook-slide-info">
+                            <h3 class="lookbook-slide-name"><?= $block->escapeHtml($lookbook->getTitle()) ?></h3>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+        <div class="lookbook-slider-nav">
+            <button class="lookbook-slider-prev" data-slider-id="<?= $block->escapeHtmlAttr($sliderId) ?>">
+                <span>&laquo;</span>
+            </button>
+            <button class="lookbook-slider-next" data-slider-id="<?= $block->escapeHtmlAttr($sliderId) ?>">
+                <span>&raquo;</span>
+            </button>
+        </div>
+    </div>
+
+
+
+    <script type="text/x-magento-init">
+    {
+        "#<?= $block->escapeJs($sliderId) ?>": {
+            "Pdf_Lookbook/js/slider": {
+                "sliderId": "<?= $block->escapeJs($sliderId) ?>"
+            }
+        }
+    }
+    </script>
+<?php endif; ?>

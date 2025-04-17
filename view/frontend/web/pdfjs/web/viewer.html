@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>PDF.js viewer</title>
+  <link rel="stylesheet" href="../build/pdf.css">
+  <script src="../build/pdf.js"></script>
+  <script src="viewer.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #404040;
+    }
+    #viewerContainer {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      overflow: auto;
+    }
+    #viewer {
+      position: relative;
+    }
+    .page {
+      margin: 10px auto;
+      border: 1px solid #000;
+      background-color: white;
+    }
+    .page canvas {
+      display: block;
+      margin: 0 auto;
+    }
+    .loadingIcon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="viewerContainer">
+    <div id="viewer" class="pdfViewer"></div>
+  </div>
+  <div class="loadingIcon">Loading...</div>
+</body>
+</html>
